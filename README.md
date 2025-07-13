@@ -1,7 +1,7 @@
 ﻿# dispenser_de_mascotas
 
 Integrantes del grupo:       
-Micaela Corvera 
+Micaela Corvera      
 Lucia Gimenez Medina        
 Claudia Camila Ramos      
 
