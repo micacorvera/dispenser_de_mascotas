@@ -1,9 +1,9 @@
 ﻿# dispenser_de_mascotas
 
 Integrantes del grupo:
-Micaela Larisa Corvera Noia
-Lucia Gimenez Medina
-Claudia Camila Ramos
+Micaela Larisa Corvera Noia      
+Lucia Gimenez Medina        
+Claudia Camila Ramos      
 
 El proyecto consiste en un dispenser para mascotas inteligente, el cual se puede controlar desde un dashboard en adafruit,
 y en el cual se puede programar un temporizador o servir comida de forma manual presionando un botón desde un celular o 
