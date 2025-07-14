@@ -269,11 +269,7 @@ def servir_faltante(tiempo, distancia):
         rellenar_plato(tiempo, distancia)
     elif distancia_ahora == distancia_vacio:
         print("El plato está vacío, sirviendo porción completa...")
-        rellenar_plato(tiempo, distancia)
-    else:
-        print("Sirviendo porción completa...")
         ejecutar_por_tiempo(tiempo, girar_servo) 
-
 
 print("Sistema de alimentación iniciado")
 
@@ -296,7 +292,7 @@ while True:
         conexionMQTT.publish(topic_SENSORDEPO, str(estado_depo))
 
         if estado_depo>0:
-            if lectura_comida != lectura_inicial :#and estado_depo>0
+            if lectura_comida != lectura_inicial :
                 lectura_inicial = lectura_comida
                 tiempo_a_transcurrir = (lectura_comida * seg_max_Comida ) / gr_max_Comida
                 ejecutar_por_tiempo(tiempo_a_transcurrir, girar_servo)
@@ -304,7 +300,7 @@ while True:
                 distancia_lleno = leer_sensor(sensorPorcion)
                 print(f"Nivel después del rellenado: {distancia_lleno} cm")
 
-            if(servirComida==1 ):#and estado_depo>0
+            if(servirComida==1 ):
                 servir_faltante(tiempo_a_transcurrir, distancia_lleno)
                 servirComida=0
                 time.sleep(5)
@@ -312,31 +308,24 @@ while True:
             programar_temporizador()
             print(str(intervalo_comida_hs))
             print(str(intervalo_comida_min))
-            if (intervalo_comida_hs != 0 or intervalo_comida_min !=0): #and estado_depo>0
+            if (intervalo_comida_hs != 0 or intervalo_comida_min !=0):
                 print("La comida se servirá en "+str(36*intervalo_comida_hs + 6*intervalo_comida_min))
                 time.sleep(36*intervalo_comida_hs + 6*intervalo_comida_min)
                 print("Hora de comer!")
                 servir_faltante(tiempo_a_transcurrir, distancia_lleno)
                 estado_depo = capacidad_depo()
-            
-            if apagar == 1:                
-                conectado = 0
-                conexionMQTT.publish(topic_CONECTADO, str(conectado))
-                sys.exit()
-                
-        elif estado_depo<=0:
+        else:
             print('El dispenser no tiene comida! Recargar para que continue con su funcionamiento')
             estado_depo = capacidad_depo()
             time.sleep(1)
-            if apagar == 1:
-                conectado = 0
-                conexionMQTT.publish(topic_CONECTADO, str(conectado))
-                sys.exit()
+        if apagar == 1:                
+            conectado = 0
+            conexionMQTT.publish(topic_CONECTADO, str(conectado))
+            sys.exit()
         sleep(1)  # Esperar 1 segundo entre iteraciones
 
     except OSError as e:
         print(f"Error en check_msg: {e}")
         time.sleep(1)
-        configurar_mqtt()
         machine.reset()
     sleep(0.1)  
