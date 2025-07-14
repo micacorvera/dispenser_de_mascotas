@@ -241,11 +241,6 @@ def rellenar_plato(seg, distancia):
         
         nueva_distancia = leer_sensor(sensorPorcion)
         print(f"Nivel después del rellenado: {nueva_distancia:.1f} cm")
-    elif distancia_actual == distancia_vacio:
-        tiempo_llenado = calcular_tiempo_llenado(distancia_vacio, seg)
-        print(f"Rellenando plato por {tiempo_llenado:.1f} segundos...")
-        
-        sleep(1)
     else:
         print("El plato ya está lleno")
         
