@@ -28,4 +28,4 @@ el servomotor hasta llegar a la cantidad deseada.
 Se puede programar un temporizador, utilizando los teclados numéricos del dashboard. Desde el temporizador se pueden asignar intervalos de tiempo en los que se 
 servirá la comida. 
 
-https://github.com/user-attachments/assets/a68416a9-7263-4df2-95ef-e97c2d5a1647
+(https://github.com/user-attachments/assets/c590c6ed-498b-4c98-b70f-cc745c43ed1b)
